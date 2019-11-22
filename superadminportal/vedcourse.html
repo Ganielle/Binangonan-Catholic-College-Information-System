@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>VIEW/EDIT/DELETE COURSE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/superadminportal/superadminaddgrade.css">
+    </head>
+    <body>
+        <div id="wrapper">
+                <nav id="sidebar">
+                        <div id="colorcode">
+                        <center>
+                            <img src="../img/bccLogo.png" id="logo"/>
+                        </center>
+                        </div>
+                        <ul class="list-unstyled components">
+                        <center>
+                            <br/><br/>
+                            <img src="../img/adminicon.png" id="adminicon" />
+                        <br/>
+                            <h3>WELCOME SUPER ADMIN</h3>
+                        </center>
+                        <br/>
+                        <hr>
+                        <li><a href="superadminhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                        <!--course-->
+                        <li><a href="#addcourse" data-toggle="collapse" id="coursebtn" role="button" aria-expanded="false"><img src="../img/addgrade.png" id="addgradelevel"/><b> Course</b></a></li><hr>
+                        <div class="collapse show" id="addcourse">
+                            <li><a href="superadminaddgrade.html" style="padding-left: 25px;"><b> Add Course</b></a></li>
+                            <li class="active"><a href="vedcourse.html" style="padding-left: 25px;"><b> View/Edit/Delete Course</b></a></li><hr>
+                        </div>
+                        <!--subject-->
+                        <li><a href="#addingsubject" data-toggle="collapse" id="subjectbtn" role="button" aria-expanded="false"><img src="../img/addsubject.png" id="addsubject"/><b> Subject</b></a></li><hr>
+                        <div class="collapse" id="addingsubject">
+                            <li><a href="superadminaddsubject.html" style="padding-left: 25px;"><b> Add Subject</b></a></li>
+                            <li><a href="vedsubject.html" style="padding-left: 25px;"><b> View/Edit/Delete Subject</b></a></li><hr>
+                        </div>
+                        <!--teacher-->
+                        <li><a href="#addingteacher" data-toggle="collapse" id="teacherbtn" role="button" aria-expanded="false"><img src="../img/addteacher.png" id="addteacher"/><b> Instructor</b></a></li><hr>
+                        <div class="collapse" id="addingteacher">
+                            <li><a href="superadminaddteacher.html" style="padding-left: 25px;"><b> Add Instructor</b></a></li>
+                            <li><a href="vedinstructor.html" style="padding-left: 25px;"><b> View/Edit/Delete Instructor</b></a></li><hr>
+                        </div>
+                        <!--logout-->
+                        <li><a href="#" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                        </ul>
+                    </nav>
+                        </ul>
+                    </nav>
+                    
+                    <div id="content">
+                            <nav class="navbar fixed-top navbar-default navbartransparent ">
+                                    <div class="container-fluid">
+                                        <div class="navbar-header">
+                                        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                            <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                            </button>
+                                        </div>
+                                    </div>
+                                    </nav>
+                    <!-- control panel content-->
+                    <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                    <div class="container">
+                        <font size="5"><p id="breadcrumbs"><img src="../img/home.png" id="contenthome"/><a href="#" id="breadcrumbhome"> Home</a> > </font> View/Edit/Delete Course</p>
+                        <hr>
+                        <!-- this will view/edit/delete grade levels-->
+                        <div class="container">
+                            <div id="coursetable"></div>
+                        </div>
+                        <hr>
+                    </div>
+                    </div>
+        </div>
+        <!--edit modal-->
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="editmodallabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">EDIT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="selecttype">SELECT EDIT MODE</label>
+                          <select onchange="editmode()" class="form-control" id="selecttype">
+                            <option></option>
+                            <option value="cc">COURSE CODE</option>
+                            <option value="cn">COURSE NAME</option>
+                            <option value="csy">COURSE SCHOOL YEAR</option>
+                            <option value="ct">COURSE TERM</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="editcode">COURSE CODE:</label>
+                        <input type="text" class="form-control" id="editcode" disabled> 
+                      </div>
+                      <div class="form-group">
+                        <label for="editname">COURSE NAME:</label>
+                        <input type="text" class="form-control" id="editname" disabled> 
+                      </div>
+                      <div class="form-group">
+                        <label for="editsy">COURSE SCHOOL YEAR</label>
+                        <select id="editsy" class="form-control" disabled>
+                          <option></option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="editterm">SCHOOL TERM</label>
+                        <select id="editterm" class="form-control" disabled>
+                          <option></option>
+                          <option value="firstsem">FIRST SEMESTER</option>
+                          <option value="secondsem">SECOND SEMESTER</option>
+                        </select>
+                      </div>
+                    </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                <button type="submit" class="btn btn-primary" id="savebtn">SAVE</button>
+              </div>
+            </div>
+          </div>  
+        </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckersa.js"></script>
+    <script src="../js/superadmin/vedcourse.js"></script>
+    </body>
+</html>

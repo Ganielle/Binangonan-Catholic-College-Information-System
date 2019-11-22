@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>MY STUDENTS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/teacherportal/teacherhome.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav id="sidebar">
+                    <div id="colorcode">
+                    <center>
+                        <img src="../img/bccLogo.png" id="logo"/>
+                    </center>
+                    </div>
+                    <ul class="list-unstyled components">
+                    <center>
+                        <br/><br/>
+                        <img src="../img/adminicon.png" id="adminicon" />
+                    <br/>
+                        <h3>WELCOME INSTRUCTOR!</h3>
+                    </center>
+                    <br/><br/><br/>
+                    <hr>
+                    <li ><a href="teacherhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                    <li><a href="addgrade.html" id="addgrade"><img src="../img/grades.png" id="addgradelevel"/><b> Add Grade</b></a></li><hr>
+                    <li class="active"><a href="mystudents.html"><b><img src="../img/usericon.png" id="mystudents"> My Students</b></a></li><hr>
+                    <li><a href="" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                    </ul>
+                </nav>
+                
+                <div id="content">
+                    <nav class="navbar fixed-top navbar-default navbartransparent ">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                </button>
+                            </div>
+                        </div>
+                        </nav>
+                        <!-- control panel content-->
+                <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                <div class="container">
+                    <font size="5"><img src="../img/home.png" id="contenthome"/><a href="teacherhome.html" id="breadcrumbhome"> Home</a> > </font><img src="../img/usericon.png" id="contenthome" /> My Students
+                    <hr>
+                    <div class="container">
+                        <br/>
+                        <form>
+                          <div class="form-group">
+                            <label for="schooly">SCHOOL YEAR:</label>
+                            <select class="form-control" id="schooly">
+                              <option></option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="sem">SEMESTER:</label>
+                            <select onchange="getcoursecode()" class="form-control" id="sem">
+                                <option></option>
+                                <option value="firstsem">FIRST SEMESTER</option>
+                                <option value="secondsem">SECOND SEMESTER</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="cc">COURSE CODE:</label>
+                            <select onchange="getsubjectcode()" class="form-control" id="cc"></select>
+                          </div>
+                          <div class="form-group">
+                            <label for="scode">SUBJECT CODE:</label>
+                            <select class="form-control" id="scode"></select>
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="btn btn-primary" id="searchbtn" style="width: 100%">SEARCH</button>
+                          </div>
+                        </form>
+                        <br/>
+                        
+                    <hr>
+                    <hr>
+                    <br/>
+                    <font size="10"><b>MY STUDENTS</b></font><br/><br/>
+                    <div id="mystudentsgrade"></div>
+                    </div>
+                </div>
+                </div>
+                </div>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckerteacher.js"></script>
+    <script src="../js/teacherportal/getgrade.js"></script>
+    </body>
+</html>

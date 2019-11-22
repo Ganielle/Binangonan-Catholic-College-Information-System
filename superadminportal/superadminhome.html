@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>SUPERADMIN HOME</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/superadminportal/superadminhome.css">
+    </head>
+    <body>
+            <div id="wrapper">
+                <nav id="sidebar">
+                    <div id="colorcode">
+                    <center>
+                        <img src="../img/bccLogo.png" id="logo"/>
+                    </center>
+                    </div>
+                    <ul class="list-unstyled components">
+                    <center>
+                        <br/><br/>
+                        <img src="../img/adminicon.png" id="adminicon" />
+                    <br/>
+                        <h3>WELCOME SUPER ADMIN</h3>
+                    </center>
+                    <br/>
+                    <hr>
+                    <li class="active"><a href="superadminhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                    <!--course-->
+                    <li><a href="#addcourse" data-toggle="collapse" id="coursebtn" role="button" aria-expanded="false"><img src="../img/addgrade.png" id="addgradelevel"/><b> Course</b></a></li><hr>
+                    <div class="collapse" id="addcourse">
+                        <li><a href="superadminaddgrade.html" style="padding-left: 25px;"><b> Add Course</b></a></li>
+                        <li><a href="vedcourse.html" style="padding-left: 25px;"><b> View/Edit/Delete Course</b></a></li><hr>
+                    </div>
+                    <!--subject-->
+                    <li><a href="#addingsubject" data-toggle="collapse" id="subjectbtn" role="button" aria-expanded="false"><img src="../img/addsubject.png" id="addsubject"/><b> Subject</b></a></li><hr>
+                    <div class="collapse" id="addingsubject">
+                        <li><a href="superadminaddsubject.html" style="padding-left: 25px;"><b> Add Subject</b></a></li>
+                        <li><a href="vedsubject.html" style="padding-left: 25px;"><b> View/Edit/Delete Subject</b></a></li><hr>
+                    </div>
+                    <!--teacher-->
+                    <li><a href="#addingteacher" data-toggle="collapse" id="teacherbtn" role="button" aria-expanded="false"><img src="../img/addteacher.png" id="addteacher"/><b> Instructor</b></a></li><hr>
+                    <div class="collapse" id="addingteacher">
+                        <li><a href="superadminaddteacher.html" style="padding-left: 25px;"><b> Add Instructor</b></a></li>
+                        <li><a href="vedinstructor.html" style="padding-left: 25px;"><b> View/Edit/Delete Instructor</b></a></li><hr>
+                    </div>
+                    <!--logout-->
+                    <li><a href="#" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                    </ul>
+                </nav>
+                        
+                        <div id="content">
+                                <nav class="navbar fixed-top navbar-default navbartransparent ">
+                                        <div class="container-fluid">
+                                            <div class="navbar-header">
+                                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                                <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                                </button>
+                                            </div>
+                                        </div>
+                                        </nav>
+                        <!-- control panel content-->
+                        <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                        <div class="container">
+                            <font size="5"><p id="breadcrumbs"><img src="../img/home.png" id="contenthome"/> Home</p></font>
+                            <hr>
+                            <!-- this will add grade levels-->
+                            <div class="container">
+                                <div class="card expose shadow-lg" id="posting">
+                                    <div class="card-header">
+                                    <img src="../img/post.png" style="width: 15px; height: 15px;">Make Post   
+                                    </div>
+                                    <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xs-1 col-md-1 thumb" id="avatar">
+                                        <img src="../img/noavatar.png" style="width: 80px; height: 50px; border-radius: 50%">
+                                        </div>
+                                        <div class="col-xs-11 col-md-11 thumb">
+                                            <textarea id="announce" name="announce" class="form-control" rows="2" placeholder="Want something to Announce?" style="border: none!important;" onkeyup="successtext()" maxlength="400"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id="charactersleft"></div>
+                                    <hr>
+                                    <div id="footercard" class="hi">
+                                    <div class="col-xs-1 col-md-1 thumb" style="padding-top: 10px;">
+                                        <input type="submit" class="btn btn-primary" id="post" name="post" value="Post" disabled>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <br/><br/>
+                            <!-- table for grade levels information-->
+                            <div id="announcement">  
+                            </div>
+                            </div>
+                        </div>
+                        <div id="overlay"></div>
+                        </div>
+    <!-- this is the modal-->
+    <div class="modal fade" aria-hidden="true" tabindex="-1" role="dialog" id="yousure">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ALERT!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>ARE YOU SURE YOU WANT TO POST ANNOUNCEMENT??</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    <button type="button" class="btn btn-primary" id="save">POST</button>
+                </div>
+                </div>
+            </div>
+            </div>
+    <!-- this is the delete modal-->
+    <div class="modal fade" aria-hidden="true" tabindex="-1" role="dialog" id="deletesure">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ALERT!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>ARE YOU SURE YOU WANT TO DELETE?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                    <button type="button" class="btn btn-primary" id="delete">DELETE</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!--This is the edit modal-->
+    <div class="modal fade" aria-hidden="true" tabindex="-1" role="dialog" id="editsure">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">EDIT ANNOUNCEMENT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <textarea id="editannounce" name="editannounce" class="form-control" rows="5" placeholder="Edit your announcement" style="border: none!important;" onkeyup="successtext()" maxlength="400"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="editclose" data-dismiss="modal">CLOSE</button>
+                    <button type="button" class="btn btn-primary" id="editpost">EDIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/superadmin/addpost.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckersa.js"></script>
+    </body>
+</html>

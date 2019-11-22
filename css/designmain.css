@@ -1,0 +1,39 @@
+html,main{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: verdana;
+}
+.backgroundpic{
+    background: url(../img/backgroundmain.jpg) no-repeat center center fixed;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.position{
+    position: absolute;
+    top:23%;
+    left:35%;
+    width: 30%;
+}
+.bgcolor{
+    background: rgba(128, 0, 0, 0.9);
+}
+#bcclogo{
+    width: 20%;
+    height: 10%;
+}
+#bccname{
+    width: 50%;
+    height: 10%;
+}
+.usernametxt{
+    padding-bottom: 10px;
+}
+.passwordtxt{
+    padding-bottom: 10px;
+}

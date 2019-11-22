@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>ADD STUDENT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/registrarportal/addstudent.css">
+    </head>
+    <body>
+            <div id="wrapper">
+                    <nav id="sidebar">
+                            <div id="colorcode">
+                            <center>
+                                <img src="../img/bccLogo.png" id="logo"/>
+                            </center>
+                            </div>
+                            <ul class="list-unstyled components">
+                            <center>
+                                <br/><br/>
+                                <img src="../img/adminicon.png" id="adminicon" />
+                            <br/>
+                                <h3>WELCOME REGISTRAR!</h3>
+                            </center>
+                            <br/><br/><br/>
+                            <hr>
+                            <li><a href="registrarhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                            <li class="active"><a href="registraraddstudent.html" id="gradelevel"><img src="../img/addteacher.png" id="addgradelevel"/><b> Add Student</b></a></li><hr>
+                            <li><a href="addstudentsubject.html" id="gradelevel"><b> Add Student Subject</b></a></li><hr>
+                            <li><a href="" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                            </ul>
+                        </nav>
+                        
+                        <div id="content">
+                                <nav class="navbar fixed-top navbar-default navbartransparent ">
+                                        <div class="container-fluid">
+                                            <div class="navbar-header">
+                                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                                <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                                </button>
+                                            </div>
+                                        </div>
+                                        </nav>
+                        <!-- control panel content-->
+                        <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                        <div class="container">
+                                <font size="5"><p id="breadcrumbs"><img src="../img/home.png" id="contenthome"/><a href="#" id="breadcrumbhome"> Home</a> > </font>Add Student Subject</p>
+                            <hr>
+                            <div class="container">
+                                <!--student adding input-->
+                                <form>
+                                    <div class="container">
+                                            <div class="form-group">
+                                                    <label for="studentno">Student Number:</label>
+                                                    <input type="text" class="form-control" id="studentno" aria-describedby="studentNo" placeholder="Student Number" maxlength="20">
+                                                    <small id="studentNo" class="form-text text-muted">REQUIRED!</small>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col">
+                                                  <div class="form-group">
+                                                    <label for="fname">Given Name:</label>
+                                                    <input onkeyup="createusername()" type="text" class="form-control" id="fname" aria-describedby="fnamelabel" placeholder="Given name" maxlength="50">
+                                                    <small id="fnamelabel" class="form-text text-muted">REQUIRED!</small>
+                                                  </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="mname">Middle Name:</label>
+                                                      <input onkeyup="createusername()" type="text" class="form-control" id="mname" aria-describedby="mnamelabel" placeholder="Middle name" maxlength="30">
+                                                      <small id="mnamelabel" class="form-text text-muted">REQUIRED!</small>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col">
+                                                    <div class="form-group">
+                                                      <label for="mname">Last Name:</label>
+                                                      <input onkeyup="createusername()" type="text" class="form-control" id="lname" aria-describedby="lnamelabel" placeholder="Last name" maxlength="30">
+                                                      <small id="lnamelabel" class="form-text text-muted">REQUIRED!</small>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                        <label for="course">Course:</label>
+                                                        <select id="course" class="form-control"></select>
+                                                        <small id="courselabel" class="form-text text-muted">REQUIRED!</small>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="course">Semester:</label>
+                                                            <select id="semester" class="form-control">
+                                                                <option value="firstsem">First Semester</option>
+                                                                <option value="secondsem">Second Semester</option>
+                                                            </select>
+                                                            <small id="courselabel" class="form-text text-muted">REQUIRED!</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="schooly">School Year:</label>
+                                                            <input type="text" class="form-control" id="schooly" aria-describedby="schoolylabel" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="uname">Username:</label>
+                                                    <input type="text" disabled class="form-control" id="uname" aria-describedby="unamelabel" placeholder="Username" maxlength="20">
+                                                    <small id="unamelabel" class="form-text text-muted">REQUIRED!</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="pass">Password:</label>
+                                                    <input type="password" class="form-control" id="pass" aria-describedby="passlabel" placeholder="Password" maxlength="20">
+                                                    <small id="passlabel" class="form-text text-muted">REQUIRED! Don't share your password to anyone</small>
+                                                </div>
+                                                <button type="submit" id="submitform" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+            </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/registrarportal/addstudent.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckerregistrar.js"></script>
+    <script>
+    function createusername(){
+      var given = $("#fname").val().toLowerCase();
+      var mname = $("#mname").val().toLowerCase();
+      var lname = $("#lname").val().toLowerCase();
+      if(given != "" && mname != "" && lname != ""){
+        var username = lname.replace(/ /g,'') + "." + given.replace(/ /g,'');
+        $("#uname").val(username);
+      }
+      else{
+        $("#uname").val("");
+      }
+    }
+    </script>
+    </body>
+</html>

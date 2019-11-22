@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>ADD TEACHER</title>
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/superadminportal/addteacher.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav id="sidebar">
+                    <div id="colorcode">
+                    <center>
+                        <img src="../img/bccLogo.png" id="logo"/>
+                    </center>
+                    </div>
+                    <ul class="list-unstyled components">
+                    <center>
+                        <br/><br/>
+                        <img src="../img/adminicon.png" id="adminicon" />
+                    <br/>
+                        <h3>WELCOME SUPER ADMIN</h3>
+                    </center>
+                    <br/>
+                    <hr>
+                    <li><a href="superadminhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                    <li><a href="#addcourse" data-toggle="collapse" id="coursebtn" role="button" aria-expanded="false"><img src="../img/addgrade.png" id="addgradelevel"/><b> Course</b></a></li><hr>
+                    <div class="collapse" id="addcourse">
+                        <li><a href="superadminaddgrade.html" style="padding-left: 25px;"><b> Add Course</b></a></li>
+                        <li><a href="vedcourse.html" style="padding-left: 25px;"><b> View/Edit/Delete Course</b></a></li><hr>
+                    </div>
+                    <!--subject-->
+                    <li><a href="#addingsubject" data-toggle="collapse" id="subjectbtn" role="button" aria-expanded="false"><img src="../img/addsubject.png" id="addsubject"/><b> Subject</b></a></li><hr>
+                    <div class="collapse" id="addingsubject">
+                        <li><a href="superadminaddsubject.html" style="padding-left: 25px;"><b> Add Subject</b></a></li>
+                        <li><a href="vedsubject.html" style="padding-left: 25px;"><b> View/Edit/Delete Subject</b></a></li><hr>
+                    </div>
+                    <!--teacher-->
+                    <li><a href="#addingteacher" data-toggle="collapse" id="teacherbtn" role="button" aria-expanded="false"><img src="../img/addteacher.png" id="addteacher"/><b> Instructor</b></a></li><hr>
+                    <div class="collapse show" id="addingteacher">
+                        <li class="active"><a href="superadminaddteacher.html" style="padding-left: 25px;"><b> Add Instructor</b></a></li>
+                        <li><a href="vedinstructor.html" style="padding-left: 25px;"><b> View/Edit/Delete Instructor</b></a></li><hr>
+                    </div>
+                    <li><a href="#" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                    </ul>
+                </nav>
+                
+                <div id="content">
+                        <nav class="navbar fixed-top navbar-default navbartransparent ">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                        <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                        </button>
+                                    </div>
+                                </div>
+                                </nav>
+                <!-- control panel content-->
+                <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                <div class="container">
+                    <font size="5"><p id="breadcrumbs"><img src="../img/home.png" id="contenthome"/><a href="#" id="breadcrumbhome"> Home</a> > </font><img src="../img/addteacher.png" id="contenthome" /> Add Instructor</p>
+                    <hr>
+                    <!-- this will add grade levels-->
+                    <div class="container">
+                        <div class="addinggrades">
+                            <form>
+                                        <div class="form-group">
+                                            <label for="tid">Instructor ID:</label>
+                                                    <input type="text" class="form-control" id="tid" name="tid" maxlength="20" required>
+                                            </div>
+                                    <div class="form-group">
+                                        <label for="givenname">Given Name:</label>
+                                            <input type="text" onkeyup="createusername()" class="form-control" id="givenname" name="givenname" maxlength="50" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mname">Middle Name:</label>
+                                            <input type="text" onkeyup="createusername()" class="form-control" id="mname" name="mname" maxlength=30 required>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="surname">Surname:</label>
+                                        <input type="text" onkeyup="createusername()" class="form-control" id="surname" name="surname" maxlength="30" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="coursecode">Course Code:</label>
+                                  <select id="coursecode" class="form-control"></select>
+                                </div>
+                                    <div class="form-group">
+                                        <label for="uname">Instructor Username:</label>
+                                                <input type="text" class="form-control" id="uname" name="uname" maxlength="20" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pass">Instructor Password:</label>
+                                                    <input type="password" class="form-control" id="pass" name="pass" maxlength="20" required>
+                                            </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary mb-2" id="saveteacher" name="saveteacher" style="width: 100%;">Save</button>
+                                    </div>
+                            </form>
+            </div>
+                    <!-- table for subject informations-->
+                    <hr>
+                </div>
+                </div>
+    </div>
+    <!-- this is the modal-->
+    <div class="modal fade" aria-hidden="true" tabindex="-1" role="dialog" id="yousure">
+            <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ALERT!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>ARE YOU SURE YOU WANT TO SAVE?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <Script src="../js/popper.js"></Script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/superadmin/addteacher.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckersa.js"></script>
+    <script>
+    function createusername(){
+        var given = document.getElementById("givenname").value.toLowerCase();
+            mname = document.getElementById("mname").value.toLowerCase();
+            surname = document.getElementById("surname").value.toLowerCase();
+        if(given != "" && mname != "" && surname != ""){
+            console.log("hi");
+            document.getElementById("uname").value = surname.replace(/ /g,'') + "." +given.replace(/ /g,'');
+        }
+        else{
+            document.getElementById("uname").value = "";
+        }
+    }
+    </script>
+    </body>
+</html>

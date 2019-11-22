@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <title>ADD GRADE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/teacherportal/teacherhome.css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav id="sidebar">
+                    <div id="colorcode">
+                    <center>
+                        <img src="../img/bccLogo.png" id="logo"/>
+                    </center>
+                    </div>
+                    <ul class="list-unstyled components">
+                    <center>
+                        <br/><br/>
+                        <img src="../img/adminicon.png" id="adminicon" />
+                    <br/>
+                        <h3>WELCOME INSTRUCTOR!</h3>
+                    </center>
+                    <br/><br/><br/>
+                    <hr>
+                    <li ><a href="teacherhome.html" id="home"><img src="../img/home.png" id="homeicon"/><b> Home</b></a></li><hr>
+                    <li class="active"><a href="addgrade.html" id="addgrade"><img src="../img/grades.png" id="addgradelevel"/><b> Add Grade</b></a></li><hr>
+                    <li><a href="mystudents.html"><b><img src="../img/usericon.png" id="mystudents"> My Students</b></a></li><hr>
+                    <li><a href="" id="logout"><img src="../img/logout.png" id="logouticon"/><b> Logout</b></a></li>
+                    </ul>
+                </nav>
+                
+                <div id="content">
+                    <nav class="navbar fixed-top navbar-default navbartransparent ">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"> 
+                                <img src="../img/navbar.png" style="width: 20px; height: 20px" >
+                                </button>
+                            </div>
+                        </div>
+                        </nav>
+                        <!-- control panel content-->
+                <font size="5"><b><p id="greetings">Good Day! Welcome to your control center!</p></b></font><br/>
+                <div class="container">
+                    <font size="5"><img src="../img/home.png" id="contenthome"/><a href="teacherhome.html" id="breadcrumbhome"> Home</a> > </font><img src="../img/grades.png" id="contenthome" /> Add Grade
+                    <hr>
+                    <div class="container">
+                        <form>
+                                <div class="form-group">
+                                        <label for="teacherfname">Instructor name:</label>
+                                        <input type="text" class="form-control" id="teacherfname" aria-describedby="teacherfnameHelp" maxlength="50" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="schooly">School Year:</label>
+                                        <select id="schooly" class="form-control">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="semester">Semester:</label>
+                                        <select onchange="getcoursecode()" id="semester" class="form-control">
+                                            <option></option>
+                                            <option value="firstsem">FIRST SEMESTER</option>
+                                            <option value="secondsem">SECOND SEMESTER</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cousecode">Course code:</label>
+                                        <select onchange="getsubjectcode()" id="coursecode" class="form-control">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subjectcode">Subject code:</label>
+                                        <select onchange="unlockterm()" id="subjectcode" class="form-control" >
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="term">School Term:</label>
+                                            <select onchange="getstudentname()" id="term" class="form-control" disabled>
+                                                <option></option>
+                                                <option value="prelim">PRELIMINARY</option>
+                                                <option value="midterm">MIDTERM</option>
+                                                <option value="finals">FINALS</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="studnumber">Student Name:</label>
+                                            <select id="studnumber" class="form-control" disabled>
+                                                <option></option>
+                                            </select>
+                                        </div><br/><br/><br/>
+                                        <b>CLASS STANDING 60%</b>
+                                        <br/><br/>
+                                        <table class="table">
+                                          <thead class="thead-dark">
+                                            <tr>
+                                              <th scope="col">LABEL</th>
+                                              <th scope="col">GRADES</th>
+                                              <th scope="col">PERCENTAGE</th>
+                                            </tr>
+                                            <tbody>
+                                              <tr>
+                                                  <th scope="row">ATTENDANCE</th>
+                                                  <td><input type="number" min="0" id="attendance" class="form-control form-control-lg"></td>
+                                                  <td><input type="number" min="0" id="attendancepercent" class="form-control form-control-lg"></td>
+                                                </tr>
+                                              <tr>
+                                                  <th scope="row">QUIZZES</th>
+                                                  <td><input type="number" min="0" id="quiz" class="form-control form-control-lg"></td>
+                                                  <td><input type="number" min="0" id="quizpercent" class="form-control form-control-lg"></td>
+                                              </tr>
+                                              <tr>
+                                                  <th scope="row">ASSIGNMENT</th>
+                                                  <td><input type="number" min="0" id="assignment" class="form-control form-control-lg"></td>
+                                                  <td><input type="number" min="0" id="assignmentpercent" class="form-control form-control-lg"></td>
+                                              </tr>
+                                              <th scope="row">RECITATION/ACTIVITY</th>
+                                                  <td><input type="number" min="0" id="recitact" class="form-control form-control-lg"></td>
+                                                  <td><input type="number" min="0" id="recitactpercent" class="form-control form-control-lg"></td>
+                                            </tbody>
+                                          </thead>
+                                        </table>
+                                        <br/><br/><br/>
+                                        <b>EXAMINATION 40%</b>
+                                        <br/><br/>
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">LABEL</th>
+                                                    <th scope="col">GRADE</th>
+                                                    <th scope="col">PERCENTAGE</th>
+                                                  </tr>
+                                                  <tbody>
+                                                    <tr>
+                                                      <th scope="row">EXAM</th>
+                                                      <td><input type="number" class="form-control form-control-lg" min="0" id="exam"></td>
+                                                      <td><input type="text" class="form-control form-control-lg" id="exampercent" value="40" disabled></td>
+                                                    </tr>
+                                                  </tbody>
+                                            </thead>
+                                        </table>
+                        </form>
+                        <button type="submit" class="btn btn-primary" id="calculate">CALCULATE</button>
+                        <br/><br/>
+                        <div>
+                          <b>Student Total Grade: </b><br/><font size="15"><b id="totalgrade"></b></font>
+                        </div>
+                        <br/><br/>
+                        <button type="submit" class="btn btn-primary" id="savebtn" hidden>SAVE</button>
+                    </div>
+                    <hr>
+                </div>
+                </div>
+                </div>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/teacherportal/addgrade.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/portalcheckerteacher.js"></script>
+    </body>
+</html>

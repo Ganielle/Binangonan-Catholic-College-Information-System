@@ -1,0 +1,35 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="uname" placeholder="username">
+        <input type="password" id="pass" placeholder="password">
+        <input type="text" id="usernumber" placeholder="usernumber">
+        <button type="submit" id="save">signup</button>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#save").click(function(e){
+                e.preventDefault()
+                var userno = document.getElementById("usernumber").value;
+                password = document.getElementById("pass").value;
+                username = document.getElementById("uname").value;
+                
+                $.ajax({
+                    url: "server/signup.php",
+                    type: 'post',
+                    data: {'submit':'submit',usernumber:userno,pass:password,usern:username},
+                    dataType: 'json',
+                    success: function(data){
+                        if(data.stats == "success"){
+                            alert("SUCCESSFULLY SAVE !");
+                        }
+                    }
+                });
+            })
+        })
+        </script>
+    </body>
+</html>
